@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html,body{
+    margin:0;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.info{
+    margin:5% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(195, 245, 246);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.pfp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    margin-top:15%;
+}
+
+.details{
+    margin:10% auto;
+}
+
+.details p{
+    font-size:1.3rem;
+  }
+
+.his{
+    margin:2%;
+    height: 80px;
+    width:60vw;
+    position:relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    background-color: rgb(195, 245, 246);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.imgpfp{
+    width:200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.grid-item p{
+    text-align:center;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 150px;
+  }
+
+.moreInfo{
+    overflow: auto;
+    display:none;
+    width:200px;
+    height:200px;
+    position: absolute;
+    bottom:70px;
+    background-color: rgb(195, 245, 246);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.moreInfo p{
+    text-align: left;
+}
+
+.records{
+    width:65vw;
+}
+.outer{
+    margin-top:5%;
+    display: flex;
+    justify-content: center;
+}
+
+.info_wrapper{
+    width:20vw;
+    display: flex;
+    flex-direction: column;
+    margin-right:5%;
+}
+
+.editform{
+    position:absolute;
+    left:101%;
+    top:20%;
+}
+
+.doc_det, .hos_det{
+    margin-top: 5%;
+    width: 18vw;
+}
+
+.record_tt{
+    padding-left: 2%;
+    font-size: 2rem;
+}
+
+.doc_tt{
+    font-size: 2rem;
+}
+
+.info_icon{
+    font-size: 1.5rem;
+}
+
+.submit {
+  background-color: #FFFFFF;
+  border: 0;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.submit:hover {
+  background-color: rgb(249,250,251);
+}
+
+.submit:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.submit:focus-visible {
+  box-shadow: none;
+}

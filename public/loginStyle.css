@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+#loginbox{
+    display:flex;
+    justify-content: right;
+    align-items: center;
+    min-height:100vh;
+}
+
+#info-image{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    min-height:100vh;
+}
+
+.logindiv{
+    min-height:75vh;
+    min-width:30vw;
+    background-color: white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:7% 7%;
+    /* border:2px solid black;
+    border-radius: 10px; */
+}
+
+.loginform{    
+    display:flex;    
+    min-height:60vh;
+    min-width:20vw;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputbox{
+    padding:3% 0;
+}
+
+hr {
+    width:100%;
+    border:none;
+    border-top:solid;
+    border-color: black;
+    border-width:2px;    
+}
+
+.login{
+    font-size: 2.5rem;
+}
+
+i{
+    font-size: 1.5rem;
+}
+   
+.inputbox input{
+    min-width:20vw;
+    min-height:3vh;
+    border-radius: 5px;
+}
+.inputbox label{
+    font-size: 1.5rem;
+    margin:3% 3%;
+}
+.additional{
+    display: flex;
+    justify-content: space-between;
+}
+
+.additional a:hover, .register a:hover{
+    text-decoration: underline;
+}
+
+.remember{
+    margin-right:10px;
+}
+
+.register a{
+    color:orange;
+}
+
+@media (max-width:768px){
+    #loginbox{
+        width:100vw;
+        justify-content: center;
+    }
+
+    #info-image{
+        display:none;
+    }
+}

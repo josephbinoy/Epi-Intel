@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="loginStyle.css">
+    <link rel="icon" href="logo0-white.ico">
+    <title>Login</title>
+</head>
+<body>
+  <div class="nav">        
+    <nav class="bg-blue-600 border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="/" class="flex items-center">
+            <img src="logo0-white.png" class="h-8 mr-3" alt="Flowbite Logo" />
+            <span class="self-center text-2xl text-white font-semibold whitespace-nowrap dark:text-white">Epi-Intel</span>
+        </a>
+        <div class="flex items-center md:order-2">
+            <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+              <span class="sr-only">Open user menu</span>
+              <img class="w-8 h-8 rounded-full" src="profile.jpg" alt="user photo">
+              
+            </button>
+            <% if(!loggedIn){ %>
+            <span class="px-2 font-medium"><a href="/login" class="block py-2 pl-3 pr-4 text-base text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Log in</a></span>
+            <% } %>
+            <!-- Dropdown menu -->
+            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+              <div class="px-4 py-3">
+                <span class="block text-sm text-gray-900 dark:text-white"><%=docname%></span>
+                <span class="block text-sm  text-gray-500 truncate dark:text-gray-400"><%=docemail %></span>
+              </div>
+              <ul class="py-2" aria-labelledby="user-menu-button">
+                <li>
+                  <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
+                </li>
+                <% if(docname=='admin'){ %>
+                <li>
+                  <a href="/admin" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Admin</a>
+                </li>
+                <% } %>
+                <li>
+                  <a href="/signup" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                </li>
+              </ul>
+            </div>
+            <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+              </svg>
+          </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+          <ul class="bg-blue-600 flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <a href="/" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="/addDisease" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Add</a>
+            </li>
+            <li>
+                <a href="/search" class="block py-2 pl-3 pr-4 text-white  rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Search</a>
+              </li>
+            <li>
+              <a href="/profile" class="block py-2 pl-3 pr-4 text-white  rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Doctor</a>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+    </div>
+
+  <div  class="bg-white dark:bg-gray-900">
+
+    <div class="flex justify-center h-screen">
+        <div class="hidden bg-cover lg:block" style="background-image:url(signin.jpg); width: 60vw;" >
+            <!-- <div class="flex items-center h-full px-20 bg-opacity-40">
+                <div>
+                    <h2 class="text-4xl font-bold text-white"> <a href="index.html" class="flex items-center">
+                        <img src="logo0.png" class="h-14 mr-3" alt="" />
+                        <span class="self-center text-2xl leading-6 font-semibold whitespace-nowrap text-black font-medium">Epi-Intel</span>
+                    </a></h2>
+                    
+                    <p class="max-w-xl mt-3 text-black font-medium">Epidemic and disease management is a comprehensive approach to safeguarding public health against infectious threats. It involves timely detection, rapid response, and strategic control measures to contain the spread of diseases. Through surveillance, data analysis, vaccination campaigns, and community education, this proactive system empowers healthcare authorities to mitigate risks, protect populations, and ensure a healthier and more resilient society.</p>
+                </div>
+            </div> -->
+        </div>
+        
+        <div class="flex items-center w-full max-w-md px-6 mx-auto lg:w-1/2 ">
+            <div class="flex-1">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-center text-gray-700 dark:text-white"> <a href="index.html" class="flex items-center">
+                        <img src="logo0.png" class="h-14 mr-3 ml-8" alt="Flowbite Logo" />
+                        <span class=" self-center text-2xl leading-6 font-semibold whitespace-nowrap text-black ">Epi-Intel Doctor</span>
+                    </a></h2>
+                    
+                    <p class="mt-3 text-gray-500 dark:text-gray-300">Log in to access your account</p>
+                </div>
+
+                <div class="mt-8">
+                    <form action="/login" method="post">
+                        <div>
+                            <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-200 font-medium">Email Address</label>
+                            <input type="text" name="email" id="email" placeholder="example@example.com" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                        </div>
+
+                        
+                   
+
+                        <div class="mt-6">
+                            <div class="flex justify-between mb-2">
+                                <label for="password" class="text-sm font-medium text-gray-600 dark:text-gray-200">Password</label>
+                                <a href="#" class="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">Forgot password?</a>
+                            </div>
+
+                            <input type="password" name="password" id="password" placeholder="Your Password" class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                        </div>
+
+                        <div class="mt-6">
+                            <button type="submit"
+                                class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                                Log in
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <p class="mt-6 text-sm text-center text-gray-400">Dont't have an account? <a href="/signup" class="text-blue-500 focus:outline-none focus:underline hover:underline">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+</body>
+</html>
